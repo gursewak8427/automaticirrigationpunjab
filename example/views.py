@@ -46,11 +46,13 @@ def index(request) :
         print(script_dir)
         # inputs from database
         data = request.POST
-        input_city = data.get("city")
-        input_cropStage = data.get("cropStage")
-        input_cropType = data.get("cropType")
-        input_soilMoisture = data.get("soilMoisture")
-        input_soilType = data.get("soilType")
+        body_unicode = request.body.decode('utf-8')
+        body = json.loads(body_unicode)
+        input_city = body["city"]
+        input_cropStage = body["cropStage"]
+        input_cropType = body["cropType"]
+        input_soilMoisture = body["soilMoisture"]
+        input_soilType = body["soilType"]
         print("Im here")
         print([input_city, input_cropStage, input_cropType, input_soilMoisture, input_soilType])
         # input_city = db.child("data").child("city").get().val();

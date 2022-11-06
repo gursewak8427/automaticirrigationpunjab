@@ -45,10 +45,7 @@ def index(request) :
         script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
         print(script_dir)
         # inputs from database
-        # data = request.POST
-        data=json.loads(request.body)
-        print("json")
-        print(data)
+        data = request.POST
         input_city = data.get("city")
         input_cropStage = data.get("cropStage")
         input_cropType = data.get("cropType")
