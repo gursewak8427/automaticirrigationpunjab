@@ -14,6 +14,7 @@ google-auth-oauthlib==0.4.6
 google-pasta==0.2.0
 googleapis-common-protos==1.56.4
 grpcio==1.50.0
+gunicorn==20.1.0
 h5py==3.7.0
 httplib2==0.21.0
 idna==3.4
@@ -36,6 +37,7 @@ pyasn1==0.4.8
 pyasn1-modules==0.2.8
 pycryptodome==3.4.3
 pyparsing==3.0.9
+Pyrebase==3.0.27
 python-dateutil==2.8.2
 python-jwt==2.0.1
 pytz==2022.6
@@ -51,7 +53,7 @@ tensorboard-plugin-wit==1.8.1
 tensorflow-cpu==2.10.0
 tensorflow-estimator==2.10.0
 tensorflow-io-gcs-filesystem==0.27.0
-tensorflow_intel==0.0.1
+tensorflow_intel==2.10.0
 termcolor==2.1.0
 typing_extensions==4.4.0
 tzdata==2022.6
