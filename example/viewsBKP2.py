@@ -4,7 +4,7 @@ from django.shortcuts import render
 from django.http import HttpRequest, HttpResponse
 from django.core.serializers import serialize
 from .models import ApiTestModel
-# import pyrebase
+import pyrebase
 
 import os
 
@@ -17,19 +17,19 @@ import requests, json
 from datetime import datetime
 import xlrd
 
-# config = {
-#    "apiKey": "AIzaSyBIEbp43zf8ZSfSsHVBs82RsrDtxJ61YFA",
-#     "authDomain": "iot-water-irrigation-system.firebaseapp.com",
-#     "projectId": "iot-water-irrigation-system",
-#     "storageBucket": "iot-water-irrigation-system.appspot.com",
-#     "messagingSenderId": "886856412095",
-#     "appId": "1:886856412095:web:ff6743272dc570101fcf0a",
-#     "measurementId": "G-34XQEXSHJ3",
-#     "databaseURL": "https://iot-water-irrigation-system-default-rtdb.firebaseio.com/",
-# }
+config = {
+   "apiKey": "AIzaSyBIEbp43zf8ZSfSsHVBs82RsrDtxJ61YFA",
+    "authDomain": "iot-water-irrigation-system.firebaseapp.com",
+    "projectId": "iot-water-irrigation-system",
+    "storageBucket": "iot-water-irrigation-system.appspot.com",
+    "messagingSenderId": "886856412095",
+    "appId": "1:886856412095:web:ff6743272dc570101fcf0a",
+    "measurementId": "G-34XQEXSHJ3",
+    "databaseURL": "https://iot-water-irrigation-system-default-rtdb.firebaseio.com/",
+}
 
-# firebase = pyrebase.initialize_app(config)
-# db = firebase.database()
+firebase = pyrebase.initialize_app(config)
+db = firebase.database()
 
 # # Create your views here.
 # def index(request) :
@@ -43,18 +43,11 @@ def index(request) :
         script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
         print(script_dir)
         # inputs from database
-        data = request.POST
-        input_city = data.get("city")
-        input_cropStage = data.get("cropStage")
-        input_cropType = data.get("cropType")
-        input_soilMoisture = data.get("soilMoisture")
-        input_soilType = data.get("soilType")
-        print([input_city, input_cropStage, input_cropType, input_soilMoisture, input_soilType])
-        # input_city = db.child("data").child("city").get().val();
-        # input_cropStage = db.child("data").child("cropStage").get().val();
-        # input_cropType = db.child("data").child("cropType").get().val();
-        # input_soilMoisture = db.child("data").child("soilMoisture").get().val();
-        # input_soilType = db.child("data").child("soilType").get().val();
+        input_city = db.child("data").child("city").get().val();
+        input_cropStage = db.child("data").child("cropStage").get().val();
+        input_cropType = db.child("data").child("cropType").get().val();
+        input_soilMoisture = db.child("data").child("soilMoisture").get().val();
+        input_soilType = db.child("data").child("soilType").get().val();
         input_soilMoisture = int(input_soilMoisture)
         #................load ANN model.........................
         json_file = open(script_dir + "/model2.json", 'r')
