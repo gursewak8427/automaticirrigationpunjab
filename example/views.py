@@ -16,6 +16,7 @@ from keras.models import model_from_json
 import requests, json
 from datetime import datetime
 import xlrd
+from django.views.decorators.csrf import csrf_exempt
 
 # config = {
 #    "apiKey": "AIzaSyBIEbp43zf8ZSfSsHVBs82RsrDtxJ61YFA",
@@ -38,6 +39,7 @@ import xlrd
 #     name = db.child("data").child("name").get().val();
 #     return HttpResponse(name)
 
+@csrf_exempt
 def index(request) :
     try:
         script_dir = os.path.dirname(__file__) #<-- absolute dir the script is in
