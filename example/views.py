@@ -282,7 +282,7 @@ def index(request) :
         #     f=f+1 
         # tdf['decision']=m
 
-        return HttpResponse({
+        return JsonResponse({
             "0" : {
                 "0" : str(datesArr[0].strftime("%d/%m/%Y")),
                 "1" : str(tempArr[0]),
