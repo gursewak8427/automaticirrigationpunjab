@@ -49,6 +49,7 @@ def index(request) :
         input_cropType = data.get("cropType")
         input_soilMoisture = data.get("soilMoisture")
         input_soilType = data.get("soilType")
+        print("Im here")
         print([input_city, input_cropStage, input_cropType, input_soilMoisture, input_soilType])
         # input_city = db.child("data").child("city").get().val();
         # input_cropStage = db.child("data").child("cropStage").get().val();
