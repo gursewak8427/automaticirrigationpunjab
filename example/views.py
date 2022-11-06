@@ -168,6 +168,8 @@ def index(request) :
         EtcArr = tdf['ETc']
         newColArr = tdf['new_col']
         decisionArr = tdf['decision']
+        print("DECISION ARRAY")
+        print(decisionArr)
 
         # update all decisions to the database
 
@@ -355,20 +357,20 @@ def index(request) :
                 "10" : str(newColArr[4]),
                 "11" : str(decisionArr[4]),
             },
-            "5" : {
-                "0" : str(datesArr[5].strftime("%d/%m/%Y")),
-                "1" : str(tempArr[5]),
-                "2" : str(minTempArr[5]),
-                "3" : str(maxTempArr[5]),
-                "4" : str(cloudsArr[5]),
-                "5" : str(humidityArr[5]),
-                "6" : str(windArr[5]),
-                "7" : str(pressureArr[5]),
-                "8" : str(etArr[5]),
-                "9" : str(EtcArr[5]),
-                "10" : str(newColArr[5]),
-                "11" : str(decisionArr[5]),
-            },
+            # "5" : {
+            #     "0" : str(datesArr[5].strftime("%d/%m/%Y")),
+            #     "1" : str(tempArr[5]),
+            #     "2" : str(minTempArr[5]),
+            #     "3" : str(maxTempArr[5]),
+            #     "4" : str(cloudsArr[5]),
+            #     "5" : str(humidityArr[5]),
+            #     "6" : str(windArr[5]),
+            #     "7" : str(pressureArr[5]),
+            #     "8" : str(etArr[5]),
+            #     "9" : str(EtcArr[5]),
+            #     "10" : str(newColArr[5]),
+            #     "11" : str(decisionArr[5]),
+            # },
         }
         return HttpResponse(json.dumps(finalData), content_type="application/json")
     except e :
