@@ -282,7 +282,7 @@ def index(request) :
         #     f=f+1 
         # tdf['decision']=m
 
-        return JsonResponse({
+        finalData = {
             "0" : {
                 "0" : str(datesArr[0].strftime("%d/%m/%Y")),
                 "1" : str(tempArr[0]),
@@ -367,7 +367,8 @@ def index(request) :
                 "10" : str(newColArr[5]),
                 "11" : str(decisionArr[5]),
             },
-        })
+        }
+        return HttpResponse(json.dumps(finalData), content_type="application/json")
     except e :
         print("error")
         print(e)
